@@ -1,0 +1,227 @@
+/* ===== Google Fonts ===== */
+/* Crimson Text + Source Sans 3 imported via <link> in HTML */
+
+/* ===== CSS Variables ===== */
+:root {
+  --color-primary: #1e3a5f;
+  --color-secondary: #2e5b8a;
+  --color-accent: #f0c040;
+  --color-nav-bg: #162d4a;
+  --color-nav-text: #e8e8e8;
+  --color-body-bg: #f5f5f5;
+  --color-card-bg: #ffffff;
+  --color-card-border: #2e5b8a;
+  --color-footer-bg: #1e3a5f;
+  --color-footer-text: #e8e8e8;
+  --color-footer-accent: #f0c040;
+  --color-heading: #1e3a5f;
+  --font-display: 'Crimson Text', Georgia, serif;
+  --font-body: 'Source Sans 3', Arial, sans-serif;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-body-bg);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+header {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+}
+
+#course-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem;
+  letter-spacing: 0.03em;
+}
+
+/* ===== Navigation — Flexbox ===== */
+nav {
+  background-color: var(--color-nav-bg);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.6rem 1rem;
+}
+
+nav a {
+  color: var(--color-nav-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 3px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+nav a:hover {
+  background-color: var(--color-accent);
+  color: var(--color-nav-bg);
+}
+
+/* ===== Main ===== */
+main {
+  max-width: 860px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+main h1 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--color-heading);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Cards Grid ===== */
+.cards-container {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.card h2 {
+  background-color: var(--color-secondary);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.04em;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+/* ===== Card 1 – About Me ===== */
+.about-top {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.about-top p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.profile-img {
+  width: 110px;
+  height: 130px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+}
+
+.about-location h3 {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--color-heading);
+}
+
+.flag-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.flag-row figure {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.flag-img {
+  width: 100px;
+  height: 65px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #ccc;
+}
+
+.flag-row figcaption {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 0.3rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.flag-row p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ===== Card 2 – Web Dev Resources ===== */
+.card ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.card ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.card ul li a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.card ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  text-align: center;
+  padding: 1.25rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+footer p:first-child {
+  font-size: 0.95rem;
+}
+
+#lastModified {
+  color: var(--color-footer-accent);
+  font-size: 0.85rem;
+}

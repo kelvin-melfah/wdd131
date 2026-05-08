@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WDD 131</title>
+  <title>WDD 131 – Dynamic Web Fundamentals – Kelvin Melfah</title>
+  <meta name="description"
+    content="WDD 131 – Dynamic Web Fundamentals – Your Full Name – Web development fundamentals, HTML, CSS, JavaScript">
+  <meta name="author" content="Your Name">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/base.css">
+  <script src="scripts/getdates.js" defer></script>
 </head>
-<h1>WDD 131 - Kelvin</h1>
+
 <body>
-  
+
+  <header>
+    <span id="course-title">WDD 131 – Dynamic Web Fundamentals</span>
+    <nav>
+      <a href="https://www.linkedin.com/in/kelvin-melfah-b8b835301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">LinkedIn</a>
+      <a href="https://byupw.instructure.com/" target="_blank">I-Learn</a>
+      <a href="https://www.churchofjesuschrist.org/study/scriptures/nt/mark/10?lang=eng">Scripture</a>
+      <a href="#" target="_blank">Final Project</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Kelvin Melfah</h1>
+
+    <div class="cards-container">
+
+      <!-- Card 1: About Me -->
+      <section class="card">
+        <h2>About Me</h2>
+        <div class="card-body">
+          <div class="about-top">
+            <p>My name is Kelvin Melfah and I go by Kev. I was born in Ghana and live with my family in Accra. I am
+              currently working as STEM Instructor at a Bountiful Technologies Company Limited. I am currently an online student of BYU Idaho offering Software Development. I love to watch anime during my leisure time and I love to learn new things.</p>
+            <img src="images/kev's_pic1.jpeg" alt="Profile photo of Kelvin" class="profile-img">
+          </div>
+          <div class="about-location">
+            <h3>Your City, Your Country</h3>
+            <div class="flag-row">
+              <figure>
+                <img src="images/Flag_of_Ghana.svg.webp" alt="Official Flag" class="flag-img">
+                <figcaption>Official Flag of<br>Ghana</figcaption>
+              </figure>
+              <p>Ghana officially the Republic of Ghana, is a country in West Africa. It is situated with the Gulf
+              of Guinea and the Atlantic Ocean to the south, and shares borders with Côte d'Ivoire to the west, Burkina Faso to the
+              north, and Togo to the east. Ghana covers an area of 239,567 km2 (92,497 sq mi), spanning diverse ecologies, from
+              coastal savannas to tropical rainforests. With over 35 million inhabitants, Ghana is ranked thirteenth-most populous
+              country in Africa, and the second-most populous country in West Africa. The capital and largest city is Accra. It is known for its diverse landscapes,
+                wildlife, and culture. The people are warm and welcoming, and there is always something new to discover.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Card 2: Web Dev Resources -->
+      <section class="card">
+        <h2>Web Dev Resources</h2>
+        <div class="card-body">
+          <ul>
+            <li><a href="https://dev.to" target="_blank">Dev.to Community</a></li>
+            <li><a href="https://smashingmagazine.com" target="_blank">Smashing Magazine</a></li>
+            <li><a href="https://css-tricks.com" target="_blank">CSS Tricks</a></li>
+            <li><a href="https://www.w3schools.com" target="_blank">W3 Schools</a></li>
+            <li><a href="https://www.udemy.com" target="_blank">Udemy</a></li>
+            <li><a href="https://picsum.photos" target="_blank">Lorem Picsum Image Placeholder</a></li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      &copy;<span id="currentyear"></span> &#127803; Kelvin Melfah &#127803; Ghana
+    </p>
+    <p id="lastModified"></p>
+  </footer>
+
 </body>
+
 </html>
