@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive temple album page showcasing temples from around the world.">
+  <meta name="author" content="Your Full Name Here">
+  <title>Temple Album | WDD 131</title>
+
+  <!-- Google Fonts: Cinzel (display) + Lato (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Mobile-first: base styles first, then large-view overrides -->
+  <link rel="stylesheet" href="styles/temple.css">
+  <link rel="stylesheet" href="styles/temple-large.css">
+
+  <script src="scripts/temple.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <p class="site-title">Temple Album</p>
+      <button id="menu" aria-label="Toggle navigation menu"></button>
+      <nav>
+        <ul class="navigation">
+          <li><a href="#" title="Home" class="active">Home</a></li>
+          <li><a href="#" title="Old Temples">Old</a></li>
+          <li><a href="#" title="New Temples">New</a></li>
+          <li><a href="#" title="Large Temples">Large</a></li>
+          <li><a href="#" title="Small Temples">Small</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Main ────────────────────────────────────────────────────────────── -->
+  <main>
+    <h1>Temples of The Church of Jesus Christ of Latter-day Saints</h1>
+
+    <div class="gallery">
+
+      <figure>
+        <img src="images/salt-lake-temple.jpg" alt="Salt Lake Temple" loading="lazy" width="400" height="250">
+        <figcaption>Salt Lake Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/mesa-arizona-temple.jpg" alt="Mesa Arizona Temple" loading="lazy" width="400" height="250">
+        <figcaption>Mesa Arizona Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/nauvoo-illinoi-temple.jpg" alt="Nauvoo Illinois Temple" loading="lazy" width="400"
+          height="250">
+        <figcaption>Nauvoo Illinois Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/aba-nigeria-temple.jpg" alt="Aba Nigeria Temple" loading="lazy" width="400" height="250">
+        <figcaption>Aba Nigeria Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/manti-utah-temple.jpg" alt="Manti Utah Temple" loading="lazy" width="400" height="250">
+        <figcaption>Manti Utah Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/bountiful-utah-temple.jpg" alt="Bountiful Utah Temple" loading="lazy" width="400" height="250">
+        <figcaption>Bountiful Utah Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/london-england-temple.jpg" alt="London England Temple" loading="lazy" width="400" height="250">
+        <figcaption>London England Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/accra-ghana-temple.jpg" alt="Accra Ghana Temple" loading="lazy" width="400" height="250">
+        <figcaption>Accra Ghana Temple</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/são-paulo-brazil-temple.jpg" alt="São Paulo Brazil Temple" loading="lazy" width="400"
+          height="250">
+        <figcaption>São Paulo Brazil Temple</figcaption>
+      </figure>
+
+    </div><!-- /.gallery -->
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────────────────── -->
+  <footer>
+    <p>&copy; <span id="currentYear"></span> | 🦚Kelvin Melfah🦚 | WDD 131</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
+  </footer>
+
+</body>
+
+</html>

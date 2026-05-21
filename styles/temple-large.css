@@ -1,0 +1,86 @@
+/* ============================================================
+   temples-large.css  —  Larger viewport overrides (≥ 640px)
+   Applied on top of the mobile-first temples.css base
+   ============================================================ */
+
+@media screen and (min-width: 640px) {
+
+  /* ── Header: hide hamburger, show nav inline ─────────────── */
+  #menu {
+    display: none;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-title {
+    font-size: 1.8rem;
+  }
+
+  /* Nav always visible on larger screens */
+  nav {
+    width: auto;
+  }
+
+  .navigation {
+    flex-direction: row;
+    max-height: none;
+    /* override the 0 height set for mobile */
+    overflow: visible;
+    background-color: transparent;
+    gap: 0.25rem;
+  }
+
+  .navigation li {
+    border-top: none;
+  }
+
+  .navigation a {
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    color: var(--cream);
+  }
+
+  .navigation a.active {
+    background-color: var(--gold);
+    color: var(--navy);
+    border-left: none;
+  }
+
+  .navigation a.active::before {
+    content: "";
+  }
+
+  /* ── Main heading ────────────────────────────────────────── */
+  main h1 {
+    font-size: 1.5rem;
+  }
+
+  /* ── Gallery: 2 columns at medium width ──────────────────── */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+
+  /* ── Gallery: 3 columns on wide screens ──────────────────── */
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  main h1 {
+    font-size: 1.75rem;
+  }
+
+  figure img {
+    height: 220px;
+  }
+
+}
