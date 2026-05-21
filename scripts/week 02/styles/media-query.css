@@ -1,0 +1,59 @@
+/* media-query.css — base styles, mobile-first, no media query */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  color: #1a1a2e;
+}
+
+/* Shared layout for header, main, and footer */
+header,
+main,
+footer {
+  max-width: 640px;
+  margin: 1rem auto;
+  border: 1px solid #b3cde0;
+  padding: 1rem;
+  background-color: #dceefb;
+  border-radius: 6px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #1a3a5c;
+}
+
+/* Single-column grid for sections */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+section {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #c9dff0;
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #1a5276;
+}
+
+section p {
+  margin: 0.5rem 0 0;
+  line-height: 1.7;
+  color: #2c3e50;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #2c5282;
+}

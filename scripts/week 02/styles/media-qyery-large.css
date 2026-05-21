@@ -1,0 +1,17 @@
+/* media-query-large.css — styles applied at viewports 500px and wider */
+
+@media screen and (min-width: 500px) {
+  header {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000;
+  }
+
+  header h1 {
+    color: #ffffff;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
