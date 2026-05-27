@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Discover Ghana – the land of Gold, Kente, and warm hospitality on the Gulf of Guinea." />
+  <title>Ghana – The Gateway to Africa</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/place.css" />
+  <script src="scripts/place.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="flag-stripe red"></div>
+      <div class="flag-stripe gold"></div>
+      <div class="flag-stripe green"></div>
+      <div class="header-text">
+        <span class="label">Explore</span>
+        <h1>Ghana</h1>
+        <p class="subtitle">The Gateway to Africa</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <picture>
+      <!-- Wide screens: landscape image -->
+      <source srcset="images/ghanacastleview.webp" media="(min-width: 768px)" width="1400" height="600" />
+      <!-- Mobile: portrait / square crop -->
+      <img src="images/ghanacastleview.webp" srcset="images/ghanacastleview.webp.jpg 600w, images/ghanacastleview.webp 1400w"
+        sizes="(min-width: 768px) 100vw, 100vw"
+        alt="Panoramic view of Cape Coast Castle on the coast of Ghana with the Atlantic Ocean in the background"
+        width="600" height="600" loading="eager" />
+    </picture>
+    <div class="hero-caption">
+      <h2>Akwaaba <span>—</span> Welcome</h2>
+      <p>A land of vibrant culture, ancient kingdoms, and golden shores.</p>
+    </div>
+    </picture>
+  </section>
+
+  <main>
+
+    <section class="about card">
+      <h2>About Ghana</h2>
+      <p>
+        Ghana, officially the Republic of Ghana, sits on the Gulf of Guinea in West Africa.
+        Home to nearly 33 million people, it is celebrated as one of Africa's most stable
+        democracies and was the first sub-Saharan nation to gain independence from colonial rule
+        in 1957 under the visionary Kwame Nkrumah. The country's rich tapestry of over
+        100 ethnic groups — including the Akan, Ewe, Ga, and Dagomba — weaves a society
+        bound by shared pride, warmth, and the spirit of <em>ubuntu</em>.
+      </p>
+      <ul class="quick-facts">
+        <li><strong>Capital</strong> Accra</li>
+        <li><strong>Population</strong> ~33 million</li>
+        <li><strong>Language</strong> English (official), Twi, Ga, Ewe &amp; more</li>
+        <li><strong>Currency</strong> Ghanaian Cedi (GHS)</li>
+        <li><strong>Area</strong> 238,533 km²</li>
+        <li><strong>Independence</strong> 6 March 1957</li>
+      </ul>
+    </section>
+
+    <!-- WEATHER -->
+    <section class="weather card">
+      <h2 class="weather-heading">Weather</h2>
+      <div class="weather-grid">
+
+        <!-- Mobile weather icon (SVG) -->
+        <div class="weather-icon-mobile" aria-label="Partly cloudy weather icon">
+          <img src="images/cloudsfill.svg" alt="Partly cloudy" width="80" height="80" />
+        </div>
+
+        <div class="weather-details">
+          <div class="weather-stat">
+            <span class="stat-label">Location</span>
+            <span class="stat-value">Accra, Ghana</span>
+          </div>
+          <div class="weather-stat">
+            <span class="stat-label">Temperature</span>
+            <span class="stat-value" id="temperature">32 °C</span>
+          </div>
+          <div class="weather-stat">
+            <span class="stat-label">Wind Speed</span>
+            <span class="stat-value" id="wind-speed">14 km/h</span>
+          </div>
+          <div class="weather-stat">
+            <span class="stat-label">Condition</span>
+            <span class="stat-value">Partly Cloudy</span>
+          </div>
+          <div class="weather-stat highlight">
+            <span class="stat-label">Wind Chill</span>
+            <span class="stat-value" id="wind-chill">Calculating…</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery card">
+      <h2>Highlights</h2>
+      <div class="gallery-grid">
+        <figure>
+          <img src="images/kentewoven.jpg" alt="Colorful Kente cloth woven in Ghana" loading="lazy" width="400"
+            height="300" />
+          <figcaption>Kente Cloth — the fabric of royalty</figcaption>
+        </figure>
+        <figure>
+          <img src="images/capecoastcastle.jpg" alt="Cape Coast Castle, a UNESCO World Heritage site" loading="lazy"
+            width="400" height="300" />
+          <figcaption>Cape Coast Castle — UNESCO Heritage</figcaption>
+        </figure>
+        <figure>
+          <img src="images/molenationalpark.jpg" alt="Elephants at Mole National Park" loading="lazy" width="400"
+            height="300" />
+          <figcaption>Mole National Park — Wildlife sanctuary</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand">🌍 Ghana &mdash; The Gateway to Africa</p>
+      <p class="footer-meta">
+        &copy; <span id="current-year"></span> &nbsp;|&nbsp;
+        Last Modified: <span id="last-modified"></span>
+      </p>
+      <p class="footer-credit">Images: Pexels / Unsplash (free-to-use licence)</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

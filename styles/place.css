@@ -1,0 +1,460 @@
+/* ============================================================
+   GHANA COUNTRY PAGE — place.css
+   Colour palette inspired by the Ghanaian flag:
+     Red  #CE1126   Gold  #FCD116   Green #006B3F
+   ============================================================ */
+
+/* ── CSS CUSTOM PROPERTIES ────────────────────────────────── */
+:root {
+  /* Brand colours */
+  --clr-red: #CE1126;
+  --clr-gold: #FCD116;
+  --clr-green: #006B3F;
+  --clr-black: #1A1008;
+  --clr-off-white: #FDF8EF;
+  --clr-sand: #F5EDD7;
+  --clr-earth: #8B5C2A;
+
+  /* Typography */
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body: 'Source Serif 4', Georgia, serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(26, 16, 8, .12);
+  --shadow-hover: 0 8px 40px rgba(26, 16, 8, .2);
+
+  /* Transitions */
+  --transition: 0.3s ease;
+}
+
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-body);
+  background: var(--clr-off-white);
+  color: var(--clr-black);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--ff-display);
+  line-height: 1.15;
+}
+
+/* ── HEADER ───────────────────────────────────────────────── */
+header {
+  position: relative;
+  background: var(--clr-black);
+  overflow: hidden;
+}
+
+.header-inner {
+  display: flex;
+  align-items: stretch;
+  min-height: 140px;
+}
+
+.flag-stripe {
+  width: 14px;
+  flex-shrink: 0;
+}
+
+.flag-stripe.red {
+  background: var(--clr-red);
+}
+
+.flag-stripe.gold {
+  background: var(--clr-gold);
+}
+
+.flag-stripe.green {
+  background: var(--clr-green);
+}
+
+.header-text {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.header-text .label {
+  font-family: var(--ff-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  opacity: 0.85;
+}
+
+.header-text h1 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 900;
+  color: var(--clr-off-white);
+  letter-spacing: -0.02em;
+}
+
+.header-text .subtitle {
+  font-family: var(--ff-body);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-style: italic;
+  color: var(--clr-gold);
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  max-height: 520px;
+  overflow: hidden;
+  background: var(--clr-black);
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0.85;
+  transition: opacity var(--transition);
+}
+
+.hero:hover img {
+  opacity: 1;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(26, 16, 8, 0.82));
+  padding: var(--space-lg) var(--space-lg) var(--space-md);
+  color: var(--clr-off-white);
+}
+
+.hero-caption h2 {
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  color: var(--clr-gold);
+}
+
+.hero-caption h2 span {
+  color: var(--clr-off-white);
+}
+
+.hero-caption p {
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  opacity: 0.9;
+}
+
+/* ── MAIN LAYOUT ──────────────────────────────────────────── */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* ── CARD ─────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.card h2 {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--clr-green);
+  border-bottom: 3px solid var(--clr-gold);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+/* ── ABOUT ────────────────────────────────────────────────── */
+.about p {
+  margin-bottom: var(--space-sm);
+}
+
+.quick-facts {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-xs) var(--space-sm);
+  margin-top: var(--space-sm);
+  background: var(--clr-sand);
+  border-left: 5px solid var(--clr-red);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.quick-facts li {
+  font-size: 0.95rem;
+}
+
+.quick-facts strong {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-earth);
+}
+
+/* ── WEATHER ──────────────────────────────────────────────── */
+
+/* Pseudo-element icon for WIDE view — appears after the h2 */
+.weather-heading::after {
+  content: "⛅";
+  margin-left: 0.5rem;
+  font-style: normal;
+  font-size: 1.5rem;
+  display: none;
+  /* hidden on mobile; shown at wide breakpoint */
+  vertical-align: middle;
+}
+
+/* Mobile: SVG icon is visible */
+.weather-icon-mobile {
+  margin-bottom: var(--space-sm);
+  text-align: center;
+}
+
+.weather-icon-mobile img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  color: var(--clr-gold);
+  /* for SVGs that use currentColor */
+  filter: invert(0);
+  /* reset any inherited filter */
+}
+
+.weather-grid {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs) var(--space-sm);
+}
+
+.weather-stat {
+  background: var(--clr-sand);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem var(--space-sm);
+}
+
+.weather-stat.highlight {
+  background: var(--clr-green);
+  color: var(--clr-off-white);
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-earth);
+  margin-bottom: 2px;
+}
+
+.weather-stat.highlight .stat-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stat-value {
+  font-family: var(--ff-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* ── GALLERY ──────────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: 1fr;
+}
+
+figure {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+figure img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+figure:hover img {
+  transform: scale(1.04);
+}
+
+figcaption {
+  background: linear-gradient(transparent, rgba(26, 16, 8, 0.75));
+  color: var(--clr-off-white);
+  font-style: italic;
+  font-size: 0.88rem;
+  padding: var(--space-sm);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+footer {
+  background: var(--clr-black);
+  color: var(--clr-off-white);
+  text-align: center;
+  padding: var(--space-md) var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.footer-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  color: var(--clr-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.footer-meta {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.footer-credit {
+  font-size: 0.75rem;
+  opacity: 0.45;
+  margin-top: 0.4rem;
+}
+
+/* ============================================================
+   MEDIA QUERIES
+   ============================================================ */
+
+/* ── TABLET: 600px ────────────────────────────────────────── */
+@media (min-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weather-grid {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+  }
+
+  .weather-details {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .weather-stat.highlight {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── DESKTOP: 768px ───────────────────────────────────────── */
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "about   about"
+      "weather gallery";
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .about {
+    grid-area: about;
+  }
+
+  .weather {
+    grid-area: weather;
+  }
+
+  .gallery {
+    grid-area: gallery;
+  }
+
+  /* Wide view: show emoji pseudo-element, hide SVG icon */
+  .weather-heading::after {
+    display: inline;
+  }
+
+  .weather-icon-mobile {
+    display: none;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── WIDE DESKTOP: 1024px ─────────────────────────────────── */
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas:
+      "about   about   weather"
+      "gallery gallery gallery";
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero {
+    max-height: 600px;
+  }
+}
