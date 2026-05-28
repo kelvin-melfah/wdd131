@@ -1,0 +1,312 @@
+/* ============================================================
+   filtered-temples.css  —  Mobile-first base + responsive styles
+   Color scheme: deep navy + warm gold + off-white
+   Fonts: Cinzel (headings/display) + Lato (body)
+   ============================================================ */
+
+/* ── CSS Custom Properties ─────────────────────────────────── */
+:root {
+  --navy: #0f1f3d;
+  --navy-mid: #1a2e52;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --cream: #f5f1e8;
+  --white: #ffffff;
+  --text-dark: #1a1a2e;
+  --text-mid: #4a4a6a;
+  --radius: 6px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  --transition: 0.25s ease;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+header {
+  background-color: var(--navy);
+  color: var(--white);
+  position: relative;
+  border-bottom: 3px solid var(--gold);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.site-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Hamburger button ──────────────────────────────────────── */
+#menu {
+  background: none;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  padding: 0.25rem 0.55rem;
+  line-height: 1;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+#menu::before {
+  content: "☰";
+}
+
+#menu.open::before {
+  content: "✕";
+}
+
+#menu:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+
+/* ── Navigation — mobile (hidden by default) ───────────────── */
+nav {
+  width: 100%;
+}
+
+.navigation {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--navy-mid);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+
+.navigation.open {
+  max-height: 400px;
+}
+
+.navigation li {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.navigation a {
+  display: block;
+  padding: 0.85rem 1.5rem;
+  color: var(--cream);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.navigation a:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+
+.navigation a.active {
+  color: var(--gold-light);
+  background-color: rgba(201, 168, 76, 0.15);
+  border-left: 3px solid var(--gold);
+}
+
+.navigation a.active::before {
+  content: "›  ";
+}
+
+/* ── Main ──────────────────────────────────────────────────── */
+main {
+  max-width: 1100px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+  flex: 1;
+}
+
+main h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--gold);
+}
+
+/* ── Gallery grid — mobile: 1 column ──────────────────────── */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* ── Figure / Temple cards ─────────────────────────────────── */
+figure {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+figure:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+figure img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Temple card detail list ───────────────────────────────── */
+.card-details {
+  list-style: none;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.card-details li {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.card-details li span {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+figcaption {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  text-align: center;
+  padding: 0.7rem 1rem;
+  background-color: var(--white);
+  border-top: 2px solid var(--gold);
+}
+
+/* ── No results message ────────────────────────────────────── */
+.no-results {
+  text-align: center;
+  color: var(--text-mid);
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  padding: 3rem 1rem;
+  grid-column: 1 / -1;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+footer {
+  background-color: var(--navy);
+  color: var(--cream);
+  text-align: center;
+  padding: 1.25rem 1rem;
+  font-size: 0.85rem;
+  border-top: 3px solid var(--gold);
+  line-height: 2;
+}
+
+footer p {
+  color: rgba(245, 241, 232, 0.8);
+}
+
+/* ── Responsive: tablet — 2 columns ───────────────────────── */
+@media (min-width: 640px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #menu {
+    display: none;
+  }
+
+  .navigation {
+    flex-direction: row;
+    max-height: none;
+    background-color: transparent;
+    justify-content: flex-end;
+    gap: 0.25rem;
+  }
+
+  .navigation li {
+    border-top: none;
+  }
+
+  .navigation a {
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius);
+    font-size: 0.78rem;
+  }
+
+  .navigation a.active {
+    border-left: none;
+    border-bottom: 2px solid var(--gold);
+    background-color: transparent;
+    color: var(--gold-light);
+  }
+
+  .navigation a.active::before {
+    content: "";
+  }
+}
+
+/* ── Responsive: desktop — 3 columns ──────────────────────── */
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main h1 {
+    font-size: 1.35rem;
+  }
+
+  .site-title {
+    font-size: 1.6rem;
+  }
+}

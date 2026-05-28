@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="A lazy-loading image gallery demonstrating native browser-level deferred image loading for better page performance." />
+  <title>Lazy Load Gallery | WDD131 Week 04</title>
+  <link rel="stylesheet" href="styles/lazyload.css" />
+</head>
+
+<body>
+
+  <header>
+    <h1>Lazy Load Gallery</h1>
+    <p>Images load only as you scroll &mdash; watch the network tab</p>
+  </header>
+
+  <main>
+
+    <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Photo Gallery
+    </h2>
+
+    <figure class="image-card">
+      <img src="https://picsum.photos/seed/forest1/400/600"
+        alt="Dense green forest with sunlight filtering through the canopy" loading="lazy" width="400" height="600" />
+      <figcaption>Into the Forest</figcaption>
+    </figure>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <figure class="image-card">
+      <img src="https://picsum.photos/seed/ocean2/400/600"
+        alt="Ocean waves crashing against rocky coastal cliffs at dusk" loading="lazy" width="400" height="600" />
+      <figcaption>Coastal Dusk</figcaption>
+    </figure>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <figure class="image-card">
+      <img src="https://picsum.photos/seed/mountain3/400/600"
+        alt="Snow-capped mountain peaks rising above a valley mist" loading="lazy" width="400" height="600" />
+      <figcaption>Above the Mist</figcaption>
+    </figure>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <figure class="image-card">
+      <img src="https://picsum.photos/seed/desert4/400/600" alt="Vast golden desert landscape with rippling sand dunes"
+        loading="lazy" width="400" height="600" />
+      <figcaption>Desert Gold</figcaption>
+    </figure>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <figure class="image-card">
+      <img src="https://picsum.photos/seed/waterfall5/400/600"
+        alt="A tall waterfall cascading over mossy rocks into a clear pool" loading="lazy" width="400" height="600" />
+      <figcaption>The Falls</figcaption>
+    </figure>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <figure class="image-card">
+      <img src="https://picsum.photos/seed/city6/400/600" alt="City skyline reflecting off still water at twilight"
+        loading="lazy" width="400" height="600" />
+      <figcaption>Twilight Skyline</figcaption>
+    </figure>
+
+  </main>
+
+  <footer>
+    <p>WDD131 &mdash; Web Frontend Development &nbsp;|&nbsp; Week 04 Activity</p>
+    <p>Last Modified: <span id="last-modified"></span></p>
+  </footer>
+
+  <script src="scripts/lazyload.js"></script>
+</body>
+
+</html>
