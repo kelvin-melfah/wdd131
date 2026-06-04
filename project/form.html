@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Submit a product review for Financial Literacy Hub tools. Rate your experience, share useful features, and help others make informed decisions." />
+  <meta name="author" content="Kelvin Melfah" />
+  <title>Kelvin Melfah – Product Review | Financial Literacy Hub</title>
+
+  <!-- Same two fonts used across the whole project for visual consistency -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- All styling lives in the external stylesheet — no inline styles -->
+  <link rel="stylesheet" href="styles/form.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+       Keeps the same branded look as the rest of the site
+       ============================================================ -->
+  <header>
+    <div class="logo-mark" aria-label="Financial Literacy Hub logo">$</div>
+    <h1>Financial Literacy Hub</h1>
+    <p class="subtitle">Product Review</p>
+    <div class="accent-line" aria-hidden="true"></div>
+  </header>
+
+  <!-- ============================================================
+       MAIN — the form lives here
+       ============================================================ -->
+  <main>
+    <div class="form-wrapper">
+
+      <div class="form-intro">
+        <h2>Share Your Experience</h2>
+        <p>
+          Your honest feedback helps other members of our community choose the
+          right tools. Takes about two minutes to complete.
+        </p>
+      </div>
+
+      <!--
+        method="get" is required for GitHub Pages compatibility.
+        action points to the confirmation page that loads after a successful submit.
+      -->
+      <form method="get" action="review.html" novalidate>
+
+        <!-- ======================================================
+             FIELD 1 — Product Name (select, dynamically populated by JS)
+             ====================================================== -->
+        <div class="field-group">
+          <label for="product-name">Product Name <span class="required-mark" aria-label="required">*</span></label>
+          <!--
+            The JS file will populate all the real product options into this
+            select element. The placeholder option below stays in place as the
+            default disabled choice so users must actively pick something.
+          -->
+          <select id="product-name" name="product" required>
+            <option value="" disabled selected>Select a Product ...</option>
+            <!-- JS dynamically inserts options here from the products array -->
+          </select>
+        </div>
+
+        <!-- ======================================================
+             FIELD 2 — Overall Rating (radio stars, 1–5)
+             Using the CSS star trick from the BYU-Idaho CodePen reference:
+             radios are hidden; labels styled as ☆/★ via ::before pseudo-elements.
+             flex-direction: row-reverse lets the CSS sibling selector (~) work
+             so clicking star 4 lights up stars 1–4.
+             All five share name="rating" so only one can be selected at a time.
+             ====================================================== -->
+        <div class="field-group">
+          <fieldset class="rating-fieldset">
+            <legend>Overall Rating <span class="required-mark" aria-label="required">*</span></legend>
+            <p class="rating-hint">Select a star to rate from 1 (lowest) to 5 (highest)</p>
+
+            <!-- Stars are rendered right-to-left in the DOM so the CSS
+                 sibling trick works — visually they still read 1→5 left to right
+                 because the flex container reverses the display order. -->
+            <div class="stars" role="group" aria-label="Star rating">
+              <input type="radio" id="star5" name="rating" value="5" required />
+              <label for="star5" aria-label="5 stars"></label>
+
+              <input type="radio" id="star4" name="rating" value="4" required />
+              <label for="star4" aria-label="4 stars"></label>
+
+              <input type="radio" id="star3" name="rating" value="3" required />
+              <label for="star3" aria-label="3 stars"></label>
+
+              <input type="radio" id="star2" name="rating" value="2" required />
+              <label for="star2" aria-label="2 stars"></label>
+
+              <input type="radio" id="star1" name="rating" value="1" required />
+              <label for="star1" aria-label="1 star"></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ======================================================
+             FIELD 3 — Date of Installation (date input)
+             ====================================================== -->
+        <div class="field-group">
+          <label for="install-date">Date of Installation <span class="required-mark"
+              aria-label="required">*</span></label>
+          <input type="date" id="install-date" name="installDate" required />
+        </div>
+
+        <!-- ======================================================
+             FIELD 4 — Useful Features (checkboxes, check all that apply)
+             Each checkbox has its own id, name, and value so they submit
+             independently — this is intentional for "check all that apply".
+             ====================================================== -->
+        <div class="field-group">
+          <fieldset class="checkbox-fieldset">
+            <legend>Useful Features <span class="optional-mark">(select all that apply)</span></legend>
+
+            <div class="checkbox-grid">
+              <div class="checkbox-item">
+                <input type="checkbox" id="feature-budgeting" name="feature" value="budgeting" />
+                <label for="feature-budgeting">Budget Calculator</label>
+              </div>
+
+              <div class="checkbox-item">
+                <input type="checkbox" id="feature-glossary" name="feature" value="glossary" />
+                <label for="feature-glossary">Financial Glossary</label>
+              </div>
+
+              <div class="checkbox-item">
+                <input type="checkbox" id="feature-articles" name="feature" value="articles" />
+                <label for="feature-articles">Educational Articles</label>
+              </div>
+
+              <div class="checkbox-item">
+                <input type="checkbox" id="feature-credit" name="feature" value="credit" />
+                <label for="feature-credit">Credit Score Guide</label>
+              </div>
+
+              <div class="checkbox-item">
+                <input type="checkbox" id="feature-investing" name="feature" value="investing" />
+                <label for="feature-investing">Investing Basics</label>
+              </div>
+
+              <div class="checkbox-item">
+                <input type="checkbox" id="feature-newsletter" name="feature" value="newsletter" />
+                <label for="feature-newsletter">Newsletter</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- ======================================================
+             FIELD 5 — Written Review (textarea, optional)
+             Not required — some users just want to click stars and move on.
+             ====================================================== -->
+        <div class="field-group">
+          <label for="written-review">
+            Written Review
+            <span class="optional-mark">(optional)</span>
+          </label>
+          <textarea id="written-review" name="writtenReview" rows="5"
+            placeholder="Tell us what you think — what worked well, what could be improved, or anything else you'd like to share."></textarea>
+        </div>
+
+        <!-- ======================================================
+             FIELD 6 — User Name (text input, optional)
+             ====================================================== -->
+        <div class="field-group">
+          <label for="user-name">
+            Your Name
+            <span class="optional-mark">(optional)</span>
+          </label>
+          <input type="text" id="user-name" name="userName" placeholder="e.g. Jamie K." autocomplete="name" />
+        </div>
+
+        <!-- ======================================================
+             SUBMIT BUTTON
+             value clearly describes what the button does
+             ====================================================== -->
+        <div class="field-group submit-group">
+          <input type="submit" value="Submit My Review" class="btn-submit" />
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — same footer used on all WDD 131 assignments
+       ============================================================ -->
+  <footer>
+    <p>WDD 131 &middot; Product Review Form &nbsp;|&nbsp; <span>Financial Literacy Hub</span></p>
+    <p class="footer-author">&copy; <span id="current-year"></span> Kelvin Melfah</p>
+  </footer>
+
+  <!-- JS goes at the bottom of body so the DOM is ready before the script runs -->
+  <script src="scripts/form.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Thank you for submitting your product review on Financial Literacy Hub. Your feedback helps our community." />
+  <meta name="author" content="Kelvin Melfah" />
+  <title>Kelvin Melfah – Review Submitted | Financial Literacy Hub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/form.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER — same branded header as form.html
+       ============================================================ -->
+  <header>
+    <div class="logo-mark" aria-label="Financial Literacy Hub logo">$</div>
+    <h1>Financial Literacy Hub</h1>
+    <p class="subtitle">Review Submitted</p>
+    <div class="accent-line" aria-hidden="true"></div>
+  </header>
+
+  <!-- ============================================================
+       MAIN — confirmation message + review counter
+       ============================================================ -->
+  <main>
+    <div class="confirmation-wrapper">
+
+      <!-- Big checkmark icon to give immediate visual confirmation -->
+      <div class="confirm-icon" aria-hidden="true">&#10003;</div>
+
+      <h2>Thank You!</h2>
+      <p class="confirm-message">
+        Your review has been submitted successfully. Honest feedback from members
+        like you helps everyone in our community make better financial decisions.
+      </p>
+
+      <!-- =========================================================
+           Review counter — JS reads from localStorage, increments,
+           writes back, then displays the updated total here.
+           ========================================================= -->
+      <div class="counter-card">
+        <p class="counter-label">Total reviews submitted on this device</p>
+        <!--
+          JS targets this span by id and updates its text content
+          after incrementing the localStorage counter.
+        -->
+        <p class="counter-number" id="review-count">—</p>
+      </div>
+
+      <!-- Show the submitted details pulled from the URL query string -->
+      <div class="submitted-details" id="submitted-details">
+        <!-- JS will populate this section with the form values from the URL -->
+      </div>
+
+      <a href="form.html" class="btn-back">Submit Another Review</a>
+
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER — consistent with the rest of the site
+       ============================================================ -->
+  <footer>
+    <p>WDD 131 &middot; Product Review Form &nbsp;|&nbsp; <span>Financial Literacy Hub</span></p>
+    <p class="footer-author">&copy; <span id="current-year"></span> Kelvin Melfah</p>
+  </footer>
+
+  <script src="scripts/form.js"></script>
+</body>
+
+</html>
