@@ -31,12 +31,12 @@
   </header>
 
   <!-- ============================================================
-       MAIN — confirmation message + review counter
+       MAIN — confirmation message + review counter + submitted details
        ============================================================ -->
   <main>
     <div class="confirmation-wrapper">
 
-      <!-- Big checkmark icon to give immediate visual confirmation -->
+      <!-- Big checkmark gives immediate visual confirmation -->
       <div class="confirm-icon" aria-hidden="true">&#10003;</div>
 
       <h2>Thank You!</h2>
@@ -46,24 +46,26 @@
       </p>
 
       <!-- =========================================================
-           Review counter — JS reads from localStorage, increments,
-           writes back, then displays the updated total here.
+           Review counter
+           JS (handleReviewCounter) reads localStorage 'reviewCount',
+           adds 1, saves it back, and writes the total into this span.
            ========================================================= -->
       <div class="counter-card">
         <p class="counter-label">Total reviews submitted on this device</p>
-        <!--
-          JS targets this span by id and updates its text content
-          after incrementing the localStorage counter.
-        -->
         <p class="counter-number" id="review-count">—</p>
       </div>
 
-      <!-- Show the submitted details pulled from the URL query string -->
+      <!-- =========================================================
+           Submitted details
+           JS (displaySubmittedDetails) reads the URL query string
+           via URLSearchParams and builds a summary here so the user
+           can confirm exactly what they sent.
+           ========================================================= -->
       <div class="submitted-details" id="submitted-details">
-        <!-- JS will populate this section with the form values from the URL -->
+        <!-- Populated by form.js — hidden if no query params found -->
       </div>
 
-      <a href="form.html" class="btn-back">Submit Another Review</a>
+      <a href="form.html" class="btn-back">← Submit Another Review</a>
 
     </div>
   </main>
@@ -76,6 +78,12 @@
     <p class="footer-author">&copy; <span id="current-year"></span> Kelvin Melfah</p>
   </footer>
 
+  <!--
+    Both pages use the SAME form.js file.
+    The guard checks inside each function (e.g. if (!selectEl) return;)
+    mean that form.html-only code silently skips on review.html, and
+    review.html-only code silently skips on form.html.
+  -->
   <script src="scripts/form.js"></script>
 </body>
 

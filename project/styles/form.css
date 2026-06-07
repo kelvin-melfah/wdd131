@@ -1,44 +1,16 @@
-/* =============================================
-   CSS CUSTOM PROPERTIES
-   Keeping all design tokens in one place makes
-   updates much easier — change a color once and
-   it ripples through the whole stylesheet.
-   ============================================= */
-:root {
-  --color-primary: #0f2d4a;
-  /* deep navy — header, labels, headings     */
-  --color-accent: #e8a020;
-  /* golden amber — stars, focus, CTA button  */
-  --color-surface: #f7f4ef;
-  /* warm off-white — page background          */
-  --color-card: #ffffff;
-  /* pure white — form card background         */
-  --color-text: #2c2c2c;
-  /* dark charcoal — body text                 */
-  --color-muted: #6b7280;
-  /* medium grey — hints, optional labels      */
-  --color-border: #d4cfc8;
-  /* subtle border for inputs                  */
-  --color-error: #c0392b;
-  /* red — required field indicators           */
-  --color-success: #27ae60;
-  /* green — confirmation checkmark            */
+/* ================================================================
+   form.css — Financial Literacy Hub · Review Form + Confirmation
+   Uses the project's established color palette:
+     Deep Navy   #1B2A4A
+     Golden Amber #F0A500
+     Warm Off-White #F5F0E8
+     Charcoal    #2E2E2E
+     Medium Grey #6B6B6B
+     Pure White  #FFFFFF
+   Fonts: Playfair Display (headings) + DM Sans (body)
+   ================================================================ */
 
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', sans-serif;
-
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --shadow-card: 0 4px 24px rgba(15, 45, 74, 0.09);
-  --transition: 0.2s ease;
-
-  /* Max width for the form — keeps long lines readable on wide screens */
-  --form-max-width: 680px;
-}
-
-/* =============================================
-   RESET
-   ============================================= */
+/* ── Reset & Base ───────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -47,311 +19,242 @@
   padding: 0;
 }
 
-/* =============================================
-   BASE
-   ============================================= */
+:root {
+  --navy: #1B2A4A;
+  --amber: #F0A500;
+  --offwhite: #F5F0E8;
+  --charcoal: #2E2E2E;
+  --grey: #6B6B6B;
+  --white: #FFFFFF;
+  --error: #C0392B;
+  --success: #27AE60;
+  --radius: 8px;
+  --shadow: 0 4px 20px rgba(27, 42, 74, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: var(--font-body);
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  line-height: 1.65;
-  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--offwhite);
+  color: var(--charcoal);
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* =============================================
-   HEADER — matches the site plan document header
-   ============================================= */
+/* ── Header ─────────────────────────────────────────────────────── */
 header {
-  background-color: var(--color-primary);
-  color: #fff;
-  padding: 2.5rem 2rem 2rem;
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 1.5rem 2rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
-/* Diagonal stripe texture — subtle but adds depth */
-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(-45deg,
-      transparent,
-      transparent 30px,
-      rgba(255, 255, 255, 0.03) 30px,
-      rgba(255, 255, 255, 0.03) 31px);
-  pointer-events: none;
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-  font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 0 0 5px rgba(232, 160, 32, 0.2);
+  color: var(--amber);
+  line-height: 1;
 }
 
 header h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 4vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  position: relative;
-  z-index: 1;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  letter-spacing: 0.02em;
+  color: var(--white);
 }
 
-header .subtitle {
-  margin-top: 0.4rem;
+.subtitle {
   font-size: 0.9rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.65);
-  letter-spacing: 0.06em;
+  color: var(--amber);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  position: relative;
-  z-index: 1;
+  margin-top: 0.25rem;
 }
 
-header .accent-line {
-  width: 50px;
+.accent-line {
   height: 3px;
-  background: var(--color-accent);
-  margin: 1rem auto 0;
-  border-radius: 2px;
-  position: relative;
-  z-index: 1;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  margin-top: 1rem;
 }
 
-/* =============================================
-   MAIN
-   ============================================= */
+/* ── Main & Form Wrapper ────────────────────────────────────────── */
 main {
   flex: 1;
-  padding: 2.5rem 1.25rem 4rem;
+  padding: 2rem 1rem;
   display: flex;
   justify-content: center;
 }
 
-/* =============================================
-   FORM WRAPPER CARD
-   The whole form sits in one white card for
-   visual separation from the warm page background.
-   ============================================= */
 .form-wrapper {
-  background-color: var(--color-card);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-  padding: 2.5rem 2.25rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
   width: 100%;
-  max-width: var(--form-max-width);
-
-  /* Left amber bar — same treatment as the site plan section cards */
-  border-left: 5px solid var(--color-accent);
+  max-width: 680px;
 }
 
+/* ── Review Counter Banner ──────────────────────────────────────── */
+.review-counter {
+  background-color: #EAF4FF;
+  border-left: 4px solid var(--amber);
+  padding: 0.6rem 1rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.875rem;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  min-height: 2rem;
+}
+
+/* ── Form Intro ─────────────────────────────────────────────────── */
 .form-intro {
   margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(212, 207, 200, 0.5);
 }
 
 .form-intro h2 {
-  font-family: var(--font-heading);
-  font-size: 1.65rem;
-  color: var(--color-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: var(--navy);
   margin-bottom: 0.5rem;
 }
 
 .form-intro p {
-  font-size: 0.95rem;
-  color: var(--color-muted);
+  color: var(--grey);
 }
 
-/* =============================================
-   FIELD GROUP
-   Each label + input lives in its own group so
-   the spacing between fields is consistent.
-   ============================================= */
+/* ── Field Groups ────────────────────────────────────────────────── */
 .field-group {
   margin-bottom: 1.75rem;
 }
 
-/* All labels use the same treatment — block display so they sit
-   above their field, bold enough to read quickly, navy to match headings. */
-.field-group>label,
-.rating-fieldset legend,
-.checkbox-fieldset legend {
+label,
+legend {
   display: block;
-  font-weight: 600;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 0.4rem;
   font-size: 0.95rem;
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
 }
 
-/* Required field asterisk — amber to match the accent system */
 .required-mark {
-  color: var(--color-accent);
-  font-weight: 700;
+  color: var(--error);
   margin-left: 2px;
 }
 
-/* Optional label badge — muted and small so it doesn't compete */
 .optional-mark {
-  font-weight: 400;
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  margin-left: 4px;
+  font-weight: 300;
+  color: var(--grey);
+  font-size: 0.85rem;
 }
 
-/* =============================================
-   TEXT INPUTS, DATE, SELECT, TEXTAREA
-   Uniform treatment across all single-line fields.
-   ============================================= */
+/* ── Inputs & Select ─────────────────────────────────────────────── */
 input[type="text"],
 input[type="date"],
 select,
 textarea {
   width: 100%;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-sm);
   padding: 0.65rem 0.9rem;
-  transition: border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
-  appearance: none;
-  /* consistent look across browsers */
+  border: 2px solid #D0D7E3;
+  border-radius: var(--radius);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Custom chevron for the select — CSS-only, no images needed */
-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230f2d4a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.85rem center;
-  padding-right: 2.25rem;
-  cursor: pointer;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.18);
 }
 
 textarea {
   resize: vertical;
-  /* let users resize vertically only, not horizontally */
-  min-height: 120px;
+  min-height: 110px;
 }
 
-/* Focus state — amber ring gives a strong, accessible visual cue */
-input[type="text"]:focus,
-input[type="date"]:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--color-accent);
-  background-color: #fff;
-  box-shadow: 0 0 0 3px rgba(232, 160, 32, 0.18);
+/* ── Error Messages ──────────────────────────────────────────────── */
+.field-error {
+  display: block;
+  color: var(--error);
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+  min-height: 1rem;
 }
 
-/* =============================================
-   FIELDSETS
-   Used for rating group and checkboxes — removes
-   the default browser border so we control the look.
-   ============================================= */
+/* ── Fieldset Resets ─────────────────────────────────────────────── */
 fieldset {
   border: none;
   padding: 0;
-}
-
-fieldset legend {
-  padding: 0;
-  margin-bottom: 0.5rem;
-}
-
-/* =============================================
-   STAR RATING
-   Technique from the BYU-Idaho CodePen reference.
-   Radios are hidden from view — labels act as the
-   clickable stars. flex-direction: row-reverse
-   is the key: it lets the CSS general sibling
-   combinator (~) light up all stars to the left
-   of the selected one while displaying them
-   visually left-to-right.
-   ============================================= */
-
-/* Hide the actual radio inputs — they're still in the DOM for
-   accessibility and form submission, just not visible. */
-.stars input[type="radio"] {
-  display: none;
-}
-
-.stars {
-  display: flex;
-  flex-direction: row-reverse;
-  /* this is what makes the sibling trick work */
-  justify-content: flex-end;
-  gap: 4px;
-  margin-top: 0.25rem;
-}
-
-/* Each label is a star glyph — empty star by default */
-.stars label {
-  font-size: 2.25rem;
-  color: var(--color-border);
-  cursor: pointer;
-  line-height: 1;
-  transition: color var(--transition), transform var(--transition);
-  display: block;
-}
-
-/* Empty star character for unselected state */
-.stars label::before {
-  content: '\2606';
-  /* ☆ */
-}
-
-/* Hover: fill the hovered star and all stars to its right (lower values
-   thanks to row-reverse) — gives a nice preview effect */
-.stars label:hover,
-.stars label:hover~label {
-  color: var(--color-accent);
-  transform: scale(1.1);
-}
-
-/* Selected state: fill the checked star and all stars to its right */
-.stars input:checked~label {
-  color: var(--color-accent);
-}
-
-/* Filled star character for selected/hovered state */
-.stars input:checked~label::before,
-.stars label:hover::before,
-.stars label:hover~label::before {
-  content: '\2605';
-  /* ★ */
+  margin: 0;
 }
 
 .rating-hint {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--grey);
+  margin-bottom: 0.75rem;
 }
 
-/* =============================================
-   CHECKBOXES
-   Displayed in a responsive two-column grid.
-   Each checkbox is sized up from the tiny browser
-   default to make tapping easier on mobile.
-   ============================================= */
+/* ── Star Rating ─────────────────────────────────────────────────── */
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.2rem;
+}
+
+.stars input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stars label {
+  font-size: 2rem;
+  color: #D0D7E3;
+  cursor: pointer;
+  transition: color 0.15s, transform 0.1s;
+  margin: 0;
+  line-height: 1;
+}
+
+.stars label::before {
+  content: '★';
+}
+
+/* Light up hovered star AND all stars to its left (higher value = earlier in DOM) */
+.stars label:hover,
+.stars label:hover~label,
+.stars input:checked~label {
+  color: var(--amber);
+}
+
+.stars label:hover {
+  transform: scale(1.15);
+}
+
+/* ── Checkbox Grid ───────────────────────────────────────────────── */
 .checkbox-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -359,252 +262,383 @@ fieldset legend {
   margin-top: 0.5rem;
 }
 
-/* Each item is label + checkbox on the same row */
 .checkbox-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* Larger, more tappable checkbox */
 .checkbox-item input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--amber);
+  cursor: pointer;
   flex-shrink: 0;
-  accent-color: var(--color-accent);
-  /* tints the checkmark amber in modern browsers */
-  cursor: pointer;
 }
 
-/* Labels next to checkboxes are inline — not block like the field labels above */
 .checkbox-item label {
+  margin: 0;
   font-weight: 400;
-  font-size: 0.9rem;
-  color: var(--color-text);
   cursor: pointer;
-  line-height: 1.3;
+  font-size: 0.92rem;
 }
 
-/* =============================================
-   SUBMIT BUTTON
-   ============================================= */
+/* ── Submit Button ───────────────────────────────────────────────── */
 .submit-group {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(212, 207, 200, 0.5);
+  margin-top: 0.5rem;
 }
 
-input[type="submit"],
-.btn-back {
-  display: inline-block;
-  font-family: var(--font-body);
+.btn-submit {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--amber);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  padding: 0.8rem 2.25rem;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
-  text-decoration: none;
-  text-align: center;
-}
-
-input[type="submit"] {
-  background-color: var(--color-accent);
-  color: var(--color-primary);
-  width: 100%;
-}
-
-input[type="submit"]:hover,
-input[type="submit"]:focus {
-  background-color: #cf8e18;
-  /* slightly darker amber */
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(232, 160, 32, 0.35);
-  outline: none;
-}
-
-input[type="submit"]:active {
-  transform: translateY(0);
-}
-
-/* =============================================
-   CONFIRMATION PAGE — review.html styles
-   ============================================= */
-.confirmation-wrapper {
-  background-color: var(--color-card);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-  padding: 3rem 2.25rem;
-  width: 100%;
-  max-width: var(--form-max-width);
-  text-align: center;
-  border-left: 5px solid var(--color-accent);
-}
-
-/* Big animated green checkmark */
-.confirm-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background-color: var(--color-success);
-  color: #fff;
-  font-size: 2.25rem;
-  margin-bottom: 1.25rem;
-
-  /* Simple pop-in animation on page load */
-  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-@keyframes pop-in {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.confirmation-wrapper h2 {
-  font-family: var(--font-heading);
-  font-size: 1.9rem;
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
-}
-
-.confirm-message {
-  font-size: 0.97rem;
-  color: var(--color-muted);
-  max-width: 420px;
-  margin: 0 auto 2rem;
-  line-height: 1.65;
-}
-
-/* Review counter card */
-.counter-card {
-  background-color: var(--color-primary);
-  color: #fff;
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
-  margin: 0 auto 2rem;
-  max-width: 280px;
-}
-
-.counter-label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 0.35rem;
-}
-
-.counter-number {
-  font-family: var(--font-heading);
-  font-size: 3rem;
   font-weight: 700;
-  color: var(--color-accent);
-  line-height: 1;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
 }
 
-/* Submitted details section on the confirmation page */
-.submitted-details {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-sm);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 2rem;
-  text-align: left;
+.btn-submit:hover {
+  background-color: #d4920a;
+  box-shadow: 0 4px 12px rgba(240, 165, 0, 0.35);
 }
 
-.submitted-details h3 {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-border);
+.btn-submit:active {
+  transform: scale(0.98);
 }
 
-.submitted-details dl {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.4rem 1rem;
-}
-
-.submitted-details dt {
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  white-space: nowrap;
-}
-
-.submitted-details dd {
-  font-size: 0.9rem;
-  color: var(--color-text);
-}
-
-/* "Submit Another Review" link button */
-.btn-back {
-  background-color: var(--color-primary);
-  color: #fff;
-  padding: 0.75rem 2rem;
-}
-
-.btn-back:hover,
-.btn-back:focus {
-  background-color: #1a4a72;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(15, 45, 74, 0.25);
-  outline: none;
-}
-
-/* =============================================
-   FOOTER
-   ============================================= */
-footer {
-  background-color: var(--color-primary);
-  color: rgba(255, 255, 255, 0.55);
+/* ── Confirmation Page ───────────────────────────────────────────── */
+.confirm-icon {
+  font-size: 3.5rem;
   text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--grey);
+}
+
+.success-icon {
+  color: var(--success);
+}
+
+.confirm-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.confirm-sub {
+  color: var(--grey);
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.confirm-card {
+  border: 2px solid #E0E8F0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.confirm-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.85rem 1.2rem;
+  border-bottom: 1px solid #E0E8F0;
+}
+
+.confirm-row:last-child {
+  border-bottom: none;
+}
+
+.confirm-label {
+  font-weight: 600;
+  color: var(--navy);
+  min-width: 160px;
+  font-size: 0.9rem;
+}
+
+.confirm-value {
+  color: var(--charcoal);
+  flex: 1;
+}
+
+.stars-display {
+  display: flex;
+  gap: 2px;
+  font-size: 1.3rem;
+}
+
+.star.filled {
+  color: var(--amber);
+}
+
+.star.empty {
+  color: #D0D7E3;
+}
+
+.features-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.features-list li {
+  background: var(--offwhite);
+  border: 1px solid #D0D7E3;
+  border-radius: 100px;
+  padding: 0.2rem 0.75rem;
   font-size: 0.82rem;
+  color: var(--charcoal);
+}
+
+.none-selected {
+  color: var(--grey);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.confirm-quote {
+  font-style: italic;
+  color: var(--grey);
+  border-left: 3px solid var(--amber);
+  padding-left: 0.75rem;
+  margin: 0;
+  flex: 1;
+}
+
+/* ── Back / Navigation Buttons ───────────────────────────────────── */
+.back-link-wrap {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.btn-back {
+  flex: 1;
+  min-width: 150px;
+  display: inline-block;
+  text-align: center;
+  padding: 0.7rem 1.25rem;
+  background-color: var(--amber);
+  color: var(--navy);
+  font-weight: 700;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-back:hover {
+  background-color: #d4920a;
+  box-shadow: 0 4px 12px rgba(240, 165, 0, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--offwhite);
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+
+.btn-secondary:hover {
+  background-color: var(--navy);
+  color: var(--white);
+  box-shadow: none;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+footer {
+  background-color: var(--navy);
+  color: #A0AABB;
+  text-align: center;
   padding: 1.25rem 1rem;
-  font-family: var(--font-body);
-  margin-top: auto;
+  font-size: 0.85rem;
 }
 
 footer span {
-  color: var(--color-accent);
+  color: var(--amber);
+}
+
+footer a {
+  color: var(--amber);
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: var(--white);
 }
 
 .footer-author {
-  margin-top: 0.25rem;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.35);
+  margin-top: 0.3rem;
 }
 
-/* =============================================
-   RESPONSIVE — one-column layout on small screens
-   ============================================= */
-@media (max-width: 540px) {
-
-  .form-wrapper,
-  .confirmation-wrapper {
-    padding: 1.75rem 1.25rem;
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .form-wrapper {
+    padding: 1.5rem 1rem;
   }
 
-  /* Checkboxes stack to a single column on narrow screens */
   .checkbox-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Stars scale down slightly so they all fit on one row */
-  .stars label {
-    font-size: 1.9rem;
+  .back-link-wrap {
+    flex-direction: column;
+  }
+
+  .confirm-label {
+    min-width: 100%;
+  }
+}
+
+
+/* ================================================================
+   REVIEW.HTML — Confirmation Page Styles
+   ================================================================ */
+
+/* ── Confirmation Wrapper ───────────────────────────────────────── */
+.confirmation-wrapper {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+}
+
+.confirm-icon {
+  font-size: 4rem;
+  color: var(--success, #27AE60);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.confirmation-wrapper h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.confirm-message {
+  color: var(--grey);
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* ── Review Counter Card ────────────────────────────────────────── */
+.counter-card {
+  background: var(--offwhite);
+  border: 2px solid var(--amber);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  min-width: 260px;
+}
+
+.counter-label {
+  font-size: 0.82rem;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+}
+
+.counter-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+/* ── Submitted Details (dl / dt / dd) ───────────────────────────── */
+.submitted-details {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.submitted-details h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--amber);
+}
+
+.submitted-details dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.1rem 1rem;
+}
+
+.submitted-details dt {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.88rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #E8EDF5;
+}
+
+.submitted-details dd {
+  color: var(--charcoal);
+  font-size: 0.92rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #E8EDF5;
+  margin: 0;
+}
+
+/* Star characters in the summary */
+.star-summary {
+  color: var(--amber);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+/* ── Back Button ────────────────────────────────────────────────── */
+.btn-back {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: var(--amber);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-back:hover {
+  background-color: #d4920a;
+  box-shadow: 0 4px 12px rgba(240, 165, 0, 0.35);
+}
+
+/* ── Responsive tweaks for confirmation page ─────────────────────── */
+@media (max-width: 480px) {
+  .submitted-details dl {
+    grid-template-columns: 1fr;
+  }
+
+  .submitted-details dt {
+    padding-bottom: 0;
+    border-bottom: none;
+    margin-top: 0.75rem;
+  }
+
+  .submitted-details dd {
+    padding-top: 0.2rem;
   }
 }
