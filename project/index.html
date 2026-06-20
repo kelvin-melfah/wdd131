@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Literacy Hub — Budgeting, Saving & Credit for Young Adults</title>
+  <meta name="description"
+    content="Financial Literacy Hub helps young adults and students build real money skills — budgeting, saving, credit, and investing basics — through plain-language guides and a free interactive budget calculator." />
+  <meta name="author" content="Kelvin Melfah" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/site.css" />
+  <script src="scripts/site.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER — branded banner + the nav that ties the whole
+       site together. Every page shares this same nav block.
+       ============================================================ -->
+  <header>
+    <a href="index.html" class="logo-link">
+      <div class="logo-mark" aria-label="Financial Literacy Hub logo">$</div>
+    </a>
+    <h1>Financial Literacy Hub</h1>
+    <p class="subtitle">Money skills that actually make sense</p>
+    <div class="accent-line" aria-hidden="true"></div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="budgeting.html">Budgeting Guide</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="form.html">Product Review</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-text">
+        <h2 id="hero-heading">Money management shouldn't feel like a foreign language.</h2>
+        <p>
+          Financial Literacy Hub breaks down budgeting, saving, credit, and investing
+          into plain-language guides built for students and young adults — plus a free
+          interactive budget calculator you can use right now, no sign-up required.
+        </p>
+        <div class="cta-row">
+          <a href="budgeting.html" class="btn-primary">Start with Budgeting 101</a>
+          <a href="#calculator" class="btn-secondary">Try the Calculator</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?fm=jpg&q=70&w=900&auto=format&fit=crop"
+          alt="A person reviewing a printed budget sheet while using a calculator at a desk" width="900" height="600" />
+      </div>
+    </section>
+
+    <!-- ==================== TOPIC CARDS ==================== -->
+    <section aria-labelledby="topics-heading">
+      <h2 class="topics-heading" id="topics-heading">Explore the Basics</h2>
+      <div class="topic-grid">
+
+        <article class="topic-card">
+          <img src="https://images.unsplash.com/photo-1625225233840-695456021cde?fm=jpg&q=70&w=700&auto=format&fit=crop"
+            alt="A calculator resting on a sheet of paper, used for working out a monthly budget" loading="lazy"
+            width="700" height="467" />
+          <div class="topic-card-body">
+            <h3>Budgeting</h3>
+            <p>
+              Learn the 50/30/20 rule, how to track spending without a spreadsheet
+              headache, and how to build a budget that survives contact with real life.
+            </p>
+            <a href="budgeting.html">Read the guide &rarr;</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?fm=jpg&q=70&w=700&auto=format&fit=crop"
+            alt="Coins being stacked by hand on a table to represent saving money" loading="lazy" width="700"
+            height="467" />
+          <div class="topic-card-body">
+            <h3>Saving</h3>
+            <p>
+              Emergency funds, sinking funds, and the difference between saving for
+              "someday" and saving for a specific goal you can actually name.
+            </p>
+            <a href="glossary.html">See related terms &rarr;</a>
+          </div>
+        </article>
+
+        <article class="topic-card">
+          <img src="https://images.unsplash.com/photo-1564939558297-fc396f18e5c7?fm=jpg&q=70&w=700&auto=format&fit=crop"
+            alt="A cash register on a counter, representing everyday spending and credit use" loading="lazy" width="700"
+            height="467" />
+          <div class="topic-card-body">
+            <h3>Credit</h3>
+            <p>
+              What a credit score actually measures, why it matters before you've
+              even applied for anything big, and how to start building it safely.
+            </p>
+            <a href="glossary.html">See related terms &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================== BUDGET CALCULATOR ====================
+         Interactive tool — demonstrates DOM selection, event
+         listening, conditional branching, and template literals.
+         Logic lives in scripts/site.js (calculateBudget function).
+         ============================================================ -->
+    <section class="calculator-section" id="calculator" aria-labelledby="calc-heading">
+      <h2 id="calc-heading">Quick Budget Check</h2>
+      <p>Enter your monthly numbers below to see if you're in the green or overspending.</p>
+
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label for="calc-income">Monthly Income ($)</label>
+          <input type="number" id="calc-income" min="0" step="1" placeholder="e.g. 2400" />
+        </div>
+        <div class="calc-field">
+          <label for="calc-needs">Needs — rent, bills, groceries ($)</label>
+          <input type="number" id="calc-needs" min="0" step="1" placeholder="e.g. 1200" />
+        </div>
+        <div class="calc-field">
+          <label for="calc-wants">Wants — dining out, hobbies ($)</label>
+          <input type="number" id="calc-wants" min="0" step="1" placeholder="e.g. 500" />
+        </div>
+        <div class="calc-field">
+          <label for="calc-savings">Savings goal ($)</label>
+          <input type="number" id="calc-savings" min="0" step="1" placeholder="e.g. 300" />
+        </div>
+      </div>
+
+      <button type="button" id="calc-button" class="btn-primary">Check My Budget</button>
+
+      <div class="calc-result" id="calc-result" style="margin-top: 1.25rem;">
+        Fill in your numbers above and click "Check My Budget" to see your results.
+      </div>
+    </section>
+
+    <!-- ==================== NEWSLETTER ====================
+         Uses localStorage so a returning visitor's email stays
+         "remembered" in the browser — demonstrates localStorage
+         outside of the review form too.
+         ==================================================== -->
+    <section class="newsletter-section" aria-labelledby="newsletter-heading">
+      <h2 id="newsletter-heading">Get one money tip a week</h2>
+      <p>No spam, just one practical tip in your inbox. Unsubscribe anytime.</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <label for="newsletter-email" class="sr-only"
+          style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email address</label>
+        <input type="email" id="newsletter-email" placeholder="you@example.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="newsletter-message" id="newsletter-message" role="status"></p>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <p>WDD 131 &middot; Final Project &nbsp;|&nbsp; <span>Financial Literacy Hub</span></p>
+    <p>&copy; <span id="current-year"></span> Kelvin Melfah</p>
+    <p><a href="references.html">References &amp; Image Credits</a></p>
+  </footer>
+
+</body>
+
+</html>

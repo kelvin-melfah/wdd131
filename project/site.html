@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About This Project | Financial Literacy Hub</title>
+  <meta name="description"
+    content="An overview of Financial Literacy Hub's purpose, audience, and design — a WDD 131 project covering budgeting, saving, credit, and investing for young adults." />
+  <meta name="author" content="Kelvin Melfah" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="site.css" />
+
+  <!-- Small inline style block just for the cross-page nav links —
+       keeping the rest of site.css untouched. -->
+  <style>
+    .site-nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .site-nav a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .site-nav a:hover {
+      color: #fff;
+    }
+
+    .site-nav a.active {
+      color: #e8a020;
+      border-bottom-color: #e8a020;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header>
+    <div class="logo-mark" aria-label="Financial Literacy Hub logo">$</div>
+    <h1>Financial Literacy Hub</h1>
+    <p class="subtitle">About This Project</p>
+    <div class="accent-line" aria-hidden="true"></div>
+
+    <nav class="site-nav" aria-label="Project pages">
+      <a href="site.html" class="active">About</a>
+      <a href="../index.html">Live Site</a>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       A short, plain overview of the site — who it's for, what
+       it offers, and the design choices behind it. No embedded
+       resource links here; those live on the dedicated References
+       page so this stays a clean read for a visitor.
+       ============================================================ -->
+  <main>
+
+    <!-- ==================== PURPOSE ==================== -->
+    <section class="section-card" aria-labelledby="purpose-heading">
+      <h2 id="purpose-heading">What Financial Literacy Hub Is</h2>
+      <p>
+        Financial Literacy Hub is a resource built for young adults &mdash; particularly
+        students and recent graduates &mdash; who want to take control of their money but
+        aren't sure where to start. The site covers the fundamentals: budgeting,
+        saving, understanding credit, and early investing concepts, explained in plain
+        language without the jargon.
+      </p>
+      <p>
+        Beyond articles, the site offers practical tools: a free budget calculator,
+        a searchable glossary of financial terms, and a product review form so the
+        community can share feedback on the tools they've used.
+      </p>
+    </section>
+
+    <!-- ==================== WHO IT'S FOR ==================== -->
+    <section class="section-card" aria-labelledby="audience-heading">
+      <h2 id="audience-heading">Who It's For</h2>
+      <p>
+        This site is built around the real questions a first-time visitor is likely
+        searching for &mdash; the kind of practical, specific concerns that come up right
+        after a first paycheck, a first credit card, or a first attempt at saving:
+      </p>
+      <ul class="scenario-list" aria-label="Visitor scenario questions">
+        <li>
+          "I just got my first paycheck &mdash; how do I make a budget that actually
+          sticks?"
+        </li>
+        <li>
+          "What does a credit score actually mean, and how do I start building good
+          credit while I'm still in school?"
+        </li>
+        <li>
+          "I've saved a small amount of money &mdash; is it too early to start investing?"
+        </li>
+      </ul>
+    </section>
+
+    <!-- ==================== COLOR & TYPOGRAPHY ==================== -->
+    <section class="section-card" aria-labelledby="design-heading">
+      <h2 id="design-heading">Design</h2>
+      <p>
+        The visual design is built around trust and clarity &mdash; the two things a
+        financial site needs most. Deep navy grounds the design with authority and
+        seriousness, golden amber adds warmth without losing professionalism, and a
+        warm off-white background keeps longer reading sessions comfortable.
+      </p>
+
+      <div class="color-grid" role="list" aria-label="Color palette">
+        <div class="color-swatch" role="listitem">
+          <div class="swatch-block swatch-navy" aria-label="Deep Navy color swatch"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Deep Navy</div>
+            <div class="swatch-hex">#0f2d4a</div>
+          </div>
+        </div>
+        <div class="color-swatch" role="listitem">
+          <div class="swatch-block swatch-amber" aria-label="Golden Amber color swatch"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Golden Amber</div>
+            <div class="swatch-hex">#e8a020</div>
+          </div>
+        </div>
+        <div class="color-swatch" role="listitem">
+          <div class="swatch-block swatch-offwhite" aria-label="Warm Off-White color swatch"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Warm Off-White</div>
+            <div class="swatch-hex">#f7f4ef</div>
+          </div>
+        </div>
+        <div class="color-swatch" role="listitem">
+          <div class="swatch-block swatch-charcoal" aria-label="Charcoal color swatch"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Charcoal</div>
+            <div class="swatch-hex">#2c2c2c</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem;">
+        Two typefaces are used throughout the site: <strong>Playfair Display</strong>
+        for headings, which gives the page a credible, editorial feel, and
+        <strong>DM Sans</strong> for body text, chosen for its clean, easy readability
+        at length.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <p>WDD 131 &middot; Final Project &nbsp;|&nbsp; <span>Financial Literacy Hub</span></p>
+    <p><a href="../index.html">View the Live Site &rarr;</a></p>
+  </footer>
+
+</body>
+
+</html>

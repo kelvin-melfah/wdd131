@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Glossary | Financial Literacy Hub</title>
+  <meta name="description"
+    content="A searchable glossary of essential personal finance terms — budgeting, credit, saving, and investing vocabulary explained in plain language." />
+  <meta name="author" content="Kelvin Melfah" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/site.css" />
+  <script src="scripts/site.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo-link">
+      <div class="logo-mark" aria-label="Financial Literacy Hub logo">$</div>
+    </a>
+    <h1>Financial Literacy Hub</h1>
+    <p class="subtitle">Glossary</p>
+    <div class="accent-line" aria-hidden="true"></div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="budgeting.html">Budgeting Guide</a>
+      <a href="glossary.html" class="active">Glossary</a>
+      <a href="form.html">Product Review</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="section-card" aria-labelledby="glossary-heading">
+      <h2 id="glossary-heading">Financial Terms, Explained Plainly</h2>
+      <p style="margin-bottom: 1.25rem; color: var(--color-muted); font-size: 0.92rem;">
+        Search below or just scroll — every term here is explained the way we'd
+        actually say it out loud, not the way a textbook would.
+      </p>
+
+      <div class="glossary-search">
+        <label for="glossary-search" class="sr-only"
+          style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Search glossary
+          terms</label>
+        <input type="search" id="glossary-search" placeholder="Search a term, like 'credit' or 'budget'…" />
+      </div>
+    </section>
+
+    <!-- Populated dynamically by setupGlossary() / renderGlossary() in site.js -->
+    <dl class="glossary-list" id="glossary-list" aria-live="polite"></dl>
+
+  </main>
+
+  <footer>
+    <p>WDD 131 &middot; Final Project &nbsp;|&nbsp; <span>Financial Literacy Hub</span></p>
+    <p>&copy; <span id="current-year"></span> Kelvin Melfah</p>
+    <p><a href="references.html">References &amp; Image Credits</a></p>
+  </footer>
+
+</body>
+
+</html>

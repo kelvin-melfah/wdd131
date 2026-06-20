@@ -16,18 +16,63 @@
     rel="stylesheet" />
 
   <link rel="stylesheet" href="styles/form.css" />
+
+  <!--
+    Small inline style block just for the cross-page nav links —
+    keeping form.css untouched. Colors match form.css's navy/amber
+    palette so the nav still looks consistent on this page.
+  -->
+  <style>
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .site-nav a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .site-nav a:hover {
+      color: #fff;
+    }
+
+    .site-nav a.active {
+      color: #F0A500;
+      border-bottom-color: #F0A500;
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- ============================================================
        HEADER
+       Same branded look across every page, plus the full site
+       nav so visitors can reach every page from here
        ============================================================ -->
   <header>
     <div class="logo-mark" aria-label="Financial Literacy Hub logo">$</div>
     <h1>Financial Literacy Hub</h1>
     <p class="subtitle">Product Review</p>
     <div class="accent-line" aria-hidden="true"></div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="budgeting.html">Budgeting Guide</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="form.html" class="active">Product Review</a>
+      <a href="references.html">References</a>
+    </nav>
   </header>
 
   <!-- ============================================================
@@ -45,22 +90,25 @@
       </div>
 
       <!--
-        method="get"   — values land in the URL query string so review.html
-                         can read them via URLSearchParams (GitHub Pages safe).
-        action         — navigates to the confirmation page on valid submit.
-        novalidate     — lets our JS handle validation and error messages.
+        Using method="get" so the field values end up in the URL's query
+        string — that way review.html can pick them back up with
+        URLSearchParams, which works fine on GitHub Pages with no backend.
+        action sends the browser to the confirmation page once everything
+        checks out, and novalidate is there so my own JS handles the
+        validation and error messages instead of the browser's defaults.
       -->
       <form id="review-form" method="get" action="review.html" novalidate>
 
-        <!-- ── FIELD 1: Product Name (select populated by JS) ────────── -->
+        <!-- ── FIELD 1: Product Name (select gets filled in by JS) ───── -->
         <div class="field-group">
           <label for="product-name">
             Product Name <span class="required-mark" aria-label="required">*</span>
           </label>
           <!--
-            The placeholder <option> stays; JS appends real options
-            after the DOM loads. value="" + disabled + selected means
-            it shows on load but cannot be submitted.
+            Leaving this placeholder option in place — JS appends the real
+            choices once the DOM has loaded. Since it's disabled and
+            selected by default, it shows up on load but can't actually
+            be submitted as a value.
           -->
           <select id="product-name" name="product" required>
             <option value="" disabled selected>Select a Product …</option>
@@ -77,10 +125,11 @@
             <p class="rating-hint">Select a star — 1 (lowest) to 5 (highest)</p>
 
             <!--
-              Stars are written 5 → 1 in the DOM (right to left) and the
-              flex container uses flex-direction: row-reverse to flip them
-              back to 1 → 5 visually. This lets the CSS general-sibling
-              selector ( ~ ) illuminate all stars below the hovered/checked one.
+              I wrote the stars 5 down to 1 in the markup (so right to left),
+              then used flex-direction: row-reverse on the container to flip
+              them back to the normal 1-to-5 reading order visually. This is
+              what lets the CSS sibling selector ( ~ ) light up every star
+              to the left of whichever one is hovered or checked.
             -->
             <div class="stars" role="group" aria-label="Star rating">
               <input type="radio" id="star5" name="rating" value="5" required />
@@ -182,9 +231,11 @@
   <footer>
     <p>WDD 131 &middot; Product Review Form &nbsp;|&nbsp; <span>Financial Literacy Hub</span></p>
     <p class="footer-author">&copy; <span id="current-year"></span> Kelvin Melfah</p>
+    <p><a href="references.html">References &amp; Image Credits</a></p>
   </footer>
 
-  <!-- Script at end of body so the DOM is ready before JS runs -->
+  <!-- Putting the script tag right before the closing body tag so the DOM
+       is fully ready by the time form.js starts running -->
   <script src="scripts/form.js"></script>
 </body>
 

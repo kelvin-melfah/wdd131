@@ -8,26 +8,67 @@
     content="Thank you for submitting your product review on Financial Literacy Hub. Your feedback helps our community." />
   <meta name="author" content="Kelvin Melfah" />
   <title>Kelvin Melfah – Review Submitted | Financial Literacy Hub</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
     rel="stylesheet" />
-
   <link rel="stylesheet" href="styles/form.css" />
+
+  <!--
+    Same small style block as form.html, just for the .site-nav
+    links — keeping form.css untouched.
+  -->
+  <style>
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .site-nav a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .site-nav a:hover {
+      color: #fff;
+    }
+
+    .site-nav a.active {
+      color: #F0A500;
+      border-bottom-color: #F0A500;
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- ============================================================
-       HEADER — same branded header as form.html
+       HEADER — keeping the same branded header used on form.html,
+       plus the full site nav so this page connects to everything
        ============================================================ -->
   <header>
     <div class="logo-mark" aria-label="Financial Literacy Hub logo">$</div>
     <h1>Financial Literacy Hub</h1>
     <p class="subtitle">Review Submitted</p>
     <div class="accent-line" aria-hidden="true"></div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="budgeting.html">Budgeting Guide</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="form.html">Product Review</a>
+      <a href="references.html">References</a>
+    </nav>
   </header>
 
   <!-- ============================================================
@@ -35,10 +76,9 @@
        ============================================================ -->
   <main>
     <div class="confirmation-wrapper">
-
-      <!-- Big checkmark gives immediate visual confirmation -->
+      <!-- A big checkmark just gives the user instant visual confirmation
+           that the submission actually went through -->
       <div class="confirm-icon" aria-hidden="true">&#10003;</div>
-
       <h2>Thank You!</h2>
       <p class="confirm-message">
         Your review has been submitted successfully. Honest feedback from members
@@ -47,8 +87,9 @@
 
       <!-- =========================================================
            Review counter
-           JS (handleReviewCounter) reads localStorage 'reviewCount',
-           adds 1, saves it back, and writes the total into this span.
+           handleReviewCounter() in form.js reads the 'reviewCount'
+           value out of localStorage, bumps it up by one, saves it
+           back, and drops the new total into this span
            ========================================================= -->
       <div class="counter-card">
         <p class="counter-label">Total reviews submitted on this device</p>
@@ -57,32 +98,33 @@
 
       <!-- =========================================================
            Submitted details
-           JS (displaySubmittedDetails) reads the URL query string
-           via URLSearchParams and builds a summary here so the user
-           can confirm exactly what they sent.
+           displaySubmittedDetails() in form.js reads the URL's query
+           string with URLSearchParams and builds a quick summary
+           here so the user can double check exactly what they sent
            ========================================================= -->
       <div class="submitted-details" id="submitted-details">
-        <!-- Populated by form.js — hidden if no query params found -->
+        <!-- form.js fills this in — it just hides itself if no query params show up -->
       </div>
 
       <a href="form.html" class="btn-back">← Submit Another Review</a>
-
     </div>
   </main>
 
   <!-- ============================================================
-       FOOTER — consistent with the rest of the site
+       FOOTER — keeping it consistent with the rest of the site
        ============================================================ -->
   <footer>
     <p>WDD 131 &middot; Product Review Form &nbsp;|&nbsp; <span>Financial Literacy Hub</span></p>
     <p class="footer-author">&copy; <span id="current-year"></span> Kelvin Melfah</p>
+    <p><a href="references.html">References &amp; Image Credits</a></p>
   </footer>
 
   <!--
-    Both pages use the SAME form.js file.
-    The guard checks inside each function (e.g. if (!selectEl) return;)
-    mean that form.html-only code silently skips on review.html, and
-    review.html-only code silently skips on form.html.
+    form.html and review.html both load this same form.js file.
+    The little guard checks inside each function (like if (!selectEl) return;)
+    are what let the form.html-only code quietly skip itself on review.html,
+    and the review.html-only code quietly skip itself on form.html — so one
+    file can safely handle both pages.
   -->
   <script src="scripts/form.js"></script>
 </body>
